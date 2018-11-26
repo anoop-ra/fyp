@@ -42,7 +42,6 @@ p0 = cv2.goodFeaturesToTrack(old_gray, mask = None, **feature_params)
     # Create a mask image for drawing purposes
 mask = np.zeros_like(old_frame)
 
-j = 1
  
 while(1):
     	ret,frame = cap.read()
@@ -51,10 +50,6 @@ while(1):
         # calculate optical flow
 	p1, st, err = cv2.calcOpticalFlowPyrLK(old_gray, frame_gray, p0, None, **lk_params)
 	
-	if(j==1):
-		print(p0[0][0][0])
-		print(p0)
-	j = j + 1
 		
 	px0 = p0[0][0][0]	
 	py0 = p0[0][0][1]
@@ -79,7 +74,7 @@ while(1):
 	m = m +	intdelta_x
 	n = n + intdelta_y
 	
-	print(dist , rads)    	
+	#print(dist , rads)    	
         # Select good points
         good_new = p1[st==1]
         good_old = p0[st==1]
