@@ -1,0 +1,15 @@
+www.ros-developer.com/2017/05/09/slam-using-gmapping-with-turtlebot-robot-and-gazbo/
+
+sudo apt-get install ros-indigo-gmapping ros-indigo-turtlebot-gazebo ros-indigo-turtlebot-simulator ros-indigo-turtlebot-teleop
+
+roslaunch turtlebot_gazebo turtlebot_world.launch
+
+roslaunch turtlebot_gazebo gmapping_demo.launch
+
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+
+roslaunch turtlebot_teleop keyboard_teleop.launch
+
+
+necessary launch files of turtlebot_gazebo and turtlebot_teleop are attached alongside......
+
