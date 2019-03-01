@@ -1,0 +1,8 @@
+prefix=/home/anoop/Desktop/hector_slam_test/install
+
+Name: hector_map_tools
+Description: Description of hector_map_tools
+Version: 0.3.5
+Cflags: -I/home/anoop/Desktop/hector_slam_test/install/include
+Libs: -L/home/anoop/Desktop/hector_slam_test/install/lib 
+Requires: nav_msgs
