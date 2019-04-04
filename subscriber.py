@@ -36,8 +36,8 @@ def ros_pub():
     scan.intensities = []  
     scan.ranges = arr
     for i in range(0, num_readings):
-        #scan.ranges.append(1.0 * count)  # fake data
-        scan.intensities.append(1)  # fake data
+        #scan.ranges.append(10*i)  # fake data
+        scan.intensities.append(50)  # fake data
     
     scan_pub.publish(scan)
     
@@ -55,15 +55,17 @@ def on_message(client, userdata, msg):
     print type(msg.payload.decode())
     data = json.loads(data.decode())
     global arr
+    arr = []*360	
     arr = data.get("a")
-    #print arr
-    print type(arr)
+    print len(arr)
+    # print type(arr)
     client.disconnect()
 while True:
 	client = mqtt.Client()	
-	client.connect("192.168.43.116",1883,60)
+	client.connect("10.42.0.1",1883,60)
+	client.subscribe("topic/test")
 
-	client.on_connect = on_connect
+	# client.on_connect = on_connect
 	client.on_message = on_message
 
 	t1 = threading.Thread(target=ros_pub, name='t1')
